@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h2 {
+  margin: 0;
+}
+
+.navbar-actions {
+  margin-left: auto;
+}
+
+.logout-btn {
+  color: #666;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #333;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}

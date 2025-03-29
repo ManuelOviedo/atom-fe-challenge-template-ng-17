@@ -1,0 +1,26 @@
+.details-card {
+  margin: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: none;
+}
+
+mat-card-header {
+  margin-bottom: 1rem;
+}
+
+mat-list-item {
+  height: auto !important;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+  min-width: 120px;
+  display: inline-block;
+}
+
+.value {
+  color: rgba(0, 0, 0, 0.87);
+}

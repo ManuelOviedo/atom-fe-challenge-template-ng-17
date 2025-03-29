@@ -1,0 +1,62 @@
+<div class="tasks-container" role="region" aria-label="Tasks section">
+  <h2>Tasks Management</h2>
+
+  <div class="actions-toolbar">
+    <button mat-raised-button color="primary" (click)="createTask()" aria-label="Create new task">
+      <mat-icon>add</mat-icon>
+      Create Task
+    </button>
+  </div>
+
+  <div class="tasks-content">
+    <div class="loading-spinner" *ngIf="isLoading">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+
+    <app-status-filter (statusChanged)="onStatusFilterChange($event)"></app-status-filter>
+
+    <div class="tasks-grid" role="list" aria-label="List of tasks">
+      <mat-card class="task-card" *ngFor="let task of tasks">
+        <mat-card-header>
+          <mat-card-title>{{task.name}}</mat-card-title>
+          <div class="timestamp-info" style="margin-left: auto; font-size: 0.85rem; color: #666;">
+            <div class="mat-small"><strong>Created:</strong> {{task.createdAt | date:'short'}}</div>
+            <div class="mat-small"><strong>Updated:</strong> {{task.updatedAt | date:'short'}}</div>
+          </div>
+          <mat-card-subtitle>
+            <mat-chip-set>
+              <mat-chip [ngClass]="{
+                'status-pending': task.status === 'pending',
+                'status-progress': task.status === 'in_progress', 
+                'status-completed': task.status === 'completed'
+              }">
+                <ng-container [ngSwitch]="task.status">
+                  <ng-container *ngSwitchCase="'in_progress'">In Progress</ng-container>
+                  <ng-container *ngSwitchCase="'pending'">Pending</ng-container>
+                  <ng-container *ngSwitchCase="'completed'">Completed</ng-container>
+                  <ng-container *ngSwitchDefault>{{task.status}}</ng-container>
+                </ng-container>
+              </mat-chip>
+            </mat-chip-set>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{task.description}}</p>
+        </mat-card-content>
+
+        <mat-card-actions align="end" class="task-actions">
+          <button mat-icon-button color="primary" (click)="viewTaskDetails(task)" aria-label="View task details">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" (click)="editTask(task)" aria-label="Edit task">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTask(task)" aria-label="Delete task">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

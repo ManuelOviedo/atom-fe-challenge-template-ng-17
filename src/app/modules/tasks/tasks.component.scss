@@ -1,0 +1,95 @@
+.tasks-container {
+  padding: 20px;
+
+  h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .actions-toolbar {
+    margin-bottom: 2rem;
+  }
+
+  .tasks-content {
+    margin-top: 20px;
+  }
+
+  .tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .task-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    mat-card-header {
+      margin-bottom: 1rem;
+    }
+
+    mat-card-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    mat-card-content {
+      p {
+        color: #666;
+        line-height: 1.5;
+      }
+    }
+
+    mat-card-actions {
+      padding: 8px;
+
+      button {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+mat-chip-set {
+  margin-top: 8px;
+}
+
+.status-pending {
+  background-color: var(--status-pending-color) !important;
+}
+
+.status-progress {
+  background-color: var(--status-progress-color) !important;
+}
+
+.status-completed {
+  background-color: var(--status-completed-color) !important;
+  color: white !important;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  margin-top: auto;
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+}

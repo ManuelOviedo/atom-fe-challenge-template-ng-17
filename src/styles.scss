@@ -1,4 +1,17 @@
 @import "assets/styles/theme";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --status-pending-color: #ff9800;
+  --status-progress-color: #2196f3;
+  --status-completed-color: #4caf50;
+}

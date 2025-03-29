@@ -1,0 +1,8 @@
+<div class="status-filter">
+  <mat-chip-listbox [value]="selectedStatus">
+    <mat-chip-option *ngFor="let status of statuses" [value]="status.value" (click)="onStatusSelect(status.value)"
+      [selected]="selectedStatus === status.value">
+      {{ status.label }}
+    </mat-chip-option>
+  </mat-chip-listbox>
+</div>
