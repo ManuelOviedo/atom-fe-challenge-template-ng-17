@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ILoginResponse, ILoginCredentials, IUser, ITask, IResponse } from '../interfaces';
+import { environment } from '../../environments/environment';
 
 export const httpInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const token = localStorage.getItem('token');
@@ -31,7 +32,7 @@ export const httpInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, ne
   providedIn: 'root'
 })
 export class HttpService {
-  private baseUrl = 'https://us-south1-challenge-d57ac.cloudfunctions.net/api';
+  private baseUrl = environment.apiUrl;
 
   constructor(
     private readonly http: HttpClient,
